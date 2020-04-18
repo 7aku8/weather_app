@@ -120,4 +120,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# TODO: add api key
+# weather api key
+WEATHER_API_KEY = 'ca5612aa1e82c360e2f47c24414423b9'
