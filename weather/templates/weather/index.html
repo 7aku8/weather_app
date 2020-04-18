@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+Weather App
+{% endblock title %}
+{% block content %}
+
+    <h4 class="w3-jumbo w3-animate-top">
+
+    {% if results %}
+    <label class="weather-title">{{ city|capfirst }}</label>
+    <ul class="search-result-table">
+    <li class="search-result-column">Państwo: {{ country_code }}</li>
+    <li class="search-result-column">Dane geograficzne: {{ coordinate }}</li>
+    <li class="search-result-column">Temperaura: {{ temp }} C</li>
+    <li class="search-result-column">Ciśnienie atmosferyczne: {{ pressure }} hPa</li>
+    <li class="search-result-column">Wilgotność: {{ humidity }} %</li>
+    <ul>
+    <a href="/"><div class="button" id="button-5">
+    <div id="translate"></div>
+    Sprawdź ponownie
+  </div></a>
+    {% else %}
+    <form method="post" action="/">
+    {% csrf_token %}
+    <input type="text" name="city" placeholder="Warsaw">
+    <input type="submit" value="Sprawdź pogodę">
+    </form>
+    {% endif %}
+    
+    </h4>
+    
+{% endblock content %}
