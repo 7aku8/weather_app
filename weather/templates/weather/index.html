@@ -11,18 +11,22 @@ Weather App
     <ul class="search-result-table">
     <li class="search-result-column">Państwo: {{ country_code }}</li>
     <li class="search-result-column">Dane geograficzne: {{ coordinate }}</li>
-    <li class="search-result-column">Temperaura: {{ temp }} C</li>
-    <li class="search-result-column">Ciśnienie atmosferyczne: {{ pressure }} hPa</li>
+    <li class="search-result-column">Temperaura: {{ temp|floatformat }} C</li>
+    <li class="search-result-column">Ciśnienie atmosferyczne: {{ pressure|floatformat }} hPa</li>
     <li class="search-result-column">Wilgotność: {{ humidity }} %</li>
     <ul>
     <a href="/"><div class="button" id="button-5">
     <div id="translate"></div>
     Sprawdź ponownie
   </div></a>
+
     {% else %}
     <form method="post" action="/">
     {% csrf_token %}
-    <input type="text" name="city" placeholder="Warsaw">
+    <div class="form__group field">
+    <input type="input" class="form__field" placeholder="Miasto" name="city" id='name' required />
+    <label for="cityc" class="form__label">Miasto</label>
+    </div>
     <input type="submit" value="Sprawdź pogodę">
     </form>
     {% endif %}
