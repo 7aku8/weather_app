@@ -1,6 +1,7 @@
 from django.test import SimpleTestCase, Client
 from django.urls import reverse
 from urllib.error import HTTPError
+from django.utils.datastructures import MultiValueDictKeyError
 
 
 class ViewTestCase(SimpleTestCase):
