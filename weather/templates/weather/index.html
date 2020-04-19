@@ -24,6 +24,9 @@ Weather App
     <form method="post" action="/">
     {% csrf_token %}
     <div class="form__group field">
+    {% if message %}
+    {{ message }}
+    {% endif %}
     <input type="input" class="form__field" placeholder="Miasto" name="city" id='name' required />
     <label for="cityc" class="form__label">Miasto</label>
     </div>
