@@ -28,5 +28,5 @@ class ViewTestCase(SimpleTestCase):
     def test_index_response_invalid_city(self):
         response = self.client.post(self.url, self.invalid_city)
 
-        self.assertContains(
-            response.request.data['message'], 'Podaj poprawną nazwę miasta!')
+        self.assertEqual(
+            response.context['message'], 'Podaj poprawną nazwę miasta!')
