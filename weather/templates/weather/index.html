@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block title %}
 Weather App
 {% endblock title %}
@@ -7,6 +8,7 @@ Weather App
     <h4 class="w3-jumbo w3-animate-top">
 
     {% if results %}
+
     <label class="weather-title">{{ city|capfirst }}</label>
     <ul class="search-result-table">
     <li class="search-result-column">Państwo: {{ country_code }}</li>
@@ -21,17 +23,16 @@ Weather App
   </div></a>
 
     {% else %}
+
     <form method="post" action="/">
     {% csrf_token %}
-    <div class="form__group field">
-    {% if message %}
+    <label class="warning-message">
     {{ message }}
-    {% endif %}
-    <input type="input" class="form__field" placeholder="Miasto" name="city" id='name' required />
-    <label for="cityc" class="form__label">Miasto</label>
-    </div>
-    <input type="submit" value="Sprawdź pogodę">
+    </label>
+    <input type="input" class="common form-field" placeholder="Miasto" name="city" id='name' required />
+    <div class="button_cont" align="center"><button class="example_a" type="submit">Sprawdź pogodę</button></div>
     </form>
+
     {% endif %}
     
     </h4>
